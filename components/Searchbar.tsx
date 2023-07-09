@@ -18,12 +18,12 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-interface SearchProps {
-  setManufacturer: string;
-  setModel: string;
-}
+// interface SearchProps {
+//   setManufacturer: string;
+//   setModel: string;
+// }
 
-const SearchBar = ({setManufacturer, setModel}: SearchProps) => {
+const SearchBar = ({setManufacturer, setModel}) => {
   const [searchManufacturer, setSearchManuFacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
 
