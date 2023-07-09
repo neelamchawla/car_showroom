@@ -7,7 +7,7 @@ import { Combobox, Transition } from "@headlessui/react";
 import { manufacturers } from "@/constants";
 import { SearchManuFacturerProps } from "@/types";
 
-const SearchManufacturer = ({ selected, setSelected }: SearchManuFacturerProps) => {
+const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacturerProps) => {
 
   const [query, setQuery] = useState("");
 
@@ -23,7 +23,7 @@ const SearchManufacturer = ({ selected, setSelected }: SearchManuFacturerProps) 
 
   return (
     <div className='search-manufacturer'>
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={manufacturer} onChange={setManuFacturer}>
         <div className='relative w-full'>
           {/* Button for the combobox. Click on the icon to see the complete dropdown */}
           <Combobox.Button className='absolute top-[14px]'>
@@ -53,7 +53,7 @@ const SearchManufacturer = ({ selected, setSelected }: SearchManuFacturerProps) 
             afterLeave={() => setQuery("")} // Reset the search query after the transition completes
           >
             <Combobox.Options
-              className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md z-10 bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
+              className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
               static
             >
               {
