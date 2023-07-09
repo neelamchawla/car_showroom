@@ -31,8 +31,8 @@ export default async function Home({ searchParams }: HomeProps) {
           <SearchBar setManufacturer={""} setModel={""} />
 
           <div className='home__filter-container'>
-            <CustomFilter title='fuel' options={fuels} />
-            <CustomFilter title='year' options={yearsOfProduction} />
+            <CustomFilter title='fuel' options={fuels} setFilter={0} />
+            <CustomFilter title='year' options={yearsOfProduction} setFilter={0} />
           </div>
         </div>
 
@@ -47,8 +47,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
             <ShowMore
               pageNumber={(searchParams.limit || 8) / 10}
-              isNext={(searchParams.limit || 8) > allCars.length}
-            />
+              isNext={(searchParams.limit || 8) > allCars.length} setLimit={0}            />
           </section>
         ) : (
           <div className='home__error-container'>
