@@ -57,7 +57,7 @@ export interface FilterProps {
 export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
-  setFilter: number;
+  // setFilter: number;
 }
 
 export interface OptionProps {
@@ -68,5 +68,5 @@ export interface OptionProps {
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
-  setLimit: number;
+  // setLimit: number;
 }
