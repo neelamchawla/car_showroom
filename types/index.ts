@@ -14,7 +14,7 @@ export interface SearchManuFacturerProps {
   manufacturer: string;
   setManuFacturer: (manufacturer: string) => void;
   selected: string;
-  setSelected: string;
+  setSelected: any;
 }
 
 export interface HomeProps {
@@ -57,7 +57,7 @@ export interface FilterProps {
 export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
-  setFilter: number;
+  setFilter?: any;
 }
 
 export interface OptionProps {
@@ -68,5 +68,5 @@ export interface OptionProps {
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
-  setLimit: number;
+  setLimit: any;
 }

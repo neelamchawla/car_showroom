@@ -18,12 +18,12 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-// interface SearchProps {
-//   setManufacturer: string;
-//   setModel: string;
-// }
+interface SearchProps {
+  setManufacturer: any;
+  setModel: any;
+}
 
-const SearchBar = ({setManufacturer, setModel}) => {
+const SearchBar = ({setManufacturer, setModel}: SearchProps) => {
   const [searchManufacturer, setSearchManuFacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
 
@@ -47,8 +47,9 @@ const SearchBar = ({setManufacturer, setModel}) => {
       <div className='searchbar__item'>
         <SearchManufacturer
           selected={searchManufacturer}
-          setSelected={setSearchManuFacturer}
-        />
+          setSelected={setSearchManuFacturer} manufacturer={""} setManuFacturer={function (manufacturer: string): void {
+            throw new Error("Function not implemented.");
+          } }        />
         <SearchButton otherClasses='sm:hidden' />
       </div>
       <div className='searchbar__item'>
