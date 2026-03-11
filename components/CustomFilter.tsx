@@ -1,8 +1,8 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
 
 import { CustomFilterProps } from "@/types";
@@ -10,7 +10,10 @@ import { updateSearchParams } from "@/utils";
 
 export default function CustomFilter({ title, options }: CustomFilterProps) {
   const router = useRouter();
-  const [selected, setSelected] = useState(options[0]); // State for storing the selected option
+  const searchParams = useSearchParams();
+  const selectedValue = (searchParams.get(title) || "").toLowerCase();
+  const selected =
+    options.find((option) => option.value.toLowerCase() === selectedValue) || options[0];
 
   // update the URL search parameters and navigate to the new URL
   const handleUpdateParams = (e: { title: string; value: string }) => {
@@ -24,7 +27,6 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e); // Update the selected option in state
           handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
         }}
       >

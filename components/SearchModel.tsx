@@ -38,7 +38,7 @@ const SearchModel = ({ manufacturer, model, setModel }: SearchModelProps) => {
               .map((item: { name?: string }) => `${item?.name || ""}`.trim())
               .filter(Boolean)
           : [];
-        setOptions([...new Set(modelNames)]);
+        setOptions(Array.from(new Set(modelNames)));
       } catch (error) {
         if ((error as Error).name !== "AbortError") {
           setOptions([]);
@@ -77,9 +77,11 @@ const SearchModel = ({ manufacturer, model, setModel }: SearchModelProps) => {
           <Combobox.Input
             className='searchbar__input'
             displayValue={(item: string) => item}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => {
+              if (!manufacturer) return;
+              setQuery(event.target.value);
+            }}
             placeholder={manufacturer ? "Select model..." : "Select manufacturer first..."}
-            disabled={!manufacturer}
           />
 
           <Transition

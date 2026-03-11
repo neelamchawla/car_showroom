@@ -2,13 +2,16 @@ import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components"
 import { HomeProps } from "@/types";
 import { fetchCars } from "@/utils";
 import { fuels, yearsOfProduction } from "@/constants";
+import Image from "next/image";
 
 export default async function Home({ searchParams }: HomeProps) {
+  const limit = Number(searchParams.limit) || 8;
+
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || "",
     fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 8,
+    limit,
     model: searchParams.model || "",
   });
   
@@ -46,14 +49,14 @@ export default async function Home({ searchParams }: HomeProps) {
             </div>
 
             <ShowMore
-              pageNumber={(searchParams.limit || 8) / 10}
-              isNext={(searchParams.limit || 8) > allCars.length}
+              pageNumber={limit / 10}
+              isNext={limit > allCars.length}
             />
           </section>
         ) : (
           <div className='home__error-container'>
+            <Image src='/Travel-Car-3D.webp' alt='no results' width={500} height={500} />
             <h2 className='text-black text-xl font-bold'>Sorry!! No Results Found.</h2>
-            <p>{allCars?.message}</p>
           </div>
         )}
       </div>

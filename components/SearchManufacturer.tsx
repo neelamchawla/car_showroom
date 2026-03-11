@@ -21,7 +21,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
           .replace(/\s+/g, "")
           .includes(query.toLowerCase().replace(/\s+/g, ""))
       );
-  const selectedManufacturerLogo = manufacturerLogos[manufacturer] ?? "/car-logo.svg";
+  const selectedManufacturerLogo = manufacturerLogos[manufacturer] ?? "/car-logo.png";
 
   return (
     <div className='search-manufacturer'>
@@ -50,7 +50,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
               onClick={() => {
                 if (!open) buttonRef.current?.click();
               }}
-              placeholder='Volkswagen...'
+              placeholder='Select manufacturer...'
             />
 
             {/* Transition for displaying the options */}
@@ -86,7 +86,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
                           <>
                             <span className={`flex items-center gap-3 truncate ${selected ? "font-medium" : "font-normal"}`}>
                               <Image
-                                src={manufacturerLogos[item] ?? "/car-logo.svg"}
+                                src={manufacturerLogos[item] ?? "/car-logo.png"}
                                 width={20}
                                 height={20}
                                 alt={`${item} logo`}
