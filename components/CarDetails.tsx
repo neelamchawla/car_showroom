@@ -61,7 +61,12 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                     <Image
                     //  src='/hero.png'
                       src={generateCarImageUrl(car)}
-                     alt='car model' fill priority className='object-contain' />
+                     alt='car model'
+                     fill
+                     sizes='(max-width: 768px) 100vw, 40vw'
+                     priority
+                     className='object-contain'
+                    />
                   </div>
 
                   <div className='flex gap-3'>
@@ -69,20 +74,35 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
                       <Image 
                       // src='/hero.png'
                       src={generateCarImageUrl(car, "29")}
-                       alt='car model' fill priority className='object-contain' />
+                       alt='car model'
+                       fill
+                       sizes='(max-width: 768px) 33vw, 180px'
+                       priority
+                       className='object-contain'
+                      />
                     </div>
                     <div className='flex-1 relative w-full h-30 bg-primary-blue-100 rounded-lg'>
                       <Image
                       // src='/hero.png'
                       // src={generateCarImageUrl(car, "33")}
                       src={generateCarImageUrl(car, "5")}
-                      alt='car model' fill priority className='object-contain' />
+                      alt='car model'
+                      fill
+                      sizes='(max-width: 768px) 33vw, 180px'
+                      priority
+                      className='object-contain'
+                     />
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                       <Image
                       // src='/hero.png'
                       src={generateCarImageUrl(car, "13")}
-                      alt='car model' fill priority className='object-contain' />
+                      alt='car model'
+                      fill
+                      sizes='(max-width: 768px) 33vw, 180px'
+                      priority
+                      className='object-contain'
+                     />
                     </div>
                   </div>
                 </div>

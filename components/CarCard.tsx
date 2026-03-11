@@ -37,7 +37,12 @@ const CarCard = ({ car }: CarCardProps) => {
         <Image
         // src="/hero.png"
         src={generateCarImageUrl(car)}
-        alt='car model' fill priority className='object-contain' />
+        alt='car model'
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1536px) 33vw, 25vw"
+        priority
+        className='object-contain'
+        />
       </div>
 
       <div className='relative flex w-full mt-2'>

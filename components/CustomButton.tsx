@@ -33,6 +33,7 @@ const Button = (
           src={rightIcon}
           alt="arrow_left"
           fill
+          sizes="24px"
           className="object-contain"
         />
       </div>

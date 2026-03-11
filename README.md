@@ -63,18 +63,15 @@ npm run dev
 npm install @headlessui/react
 
 
-<!-- Rapid Api -->
-const url = 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': NEXT_PUBLIC_RAPID_API_KEY
-        <!-- .env file -->
+<!-- Rapid Api (Car API v2) -->
+Create `.env.local` from `.env.example` and set:
 
-		'X-RapidAPI-Host': NEXT_PUBLIC_RAPID_API_HOST
-        <!-- .env file -->
-	}
-};
+RAPID_API_KEY=your_rapidapi_key_here
+RAPID_API_HOST=car-api2.p.rapidapi.com
+
+The app fetches:
+- `/api/engines/v2?year=&make=&model=`
+- `/api/mileages/v2?year=&make=&model=`
 
 <!-- image of cars -->
 https://www.imagin.studio/car-image-api
